@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from "@react-navigation/native";
 import WelcomeScreen from '../screens/WelcomeScreen';
 import UsuarioScreen from '../screens/UsuarioScreen';
+import EmpleadosScreen from '../screens/EmpleadosScreen';
 
 const Tab = createMaterialTopTabNavigator();
 const Stack = createStackNavigator();
@@ -12,17 +13,17 @@ const Stack = createStackNavigator();
 function MyTabs() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Welcome" component={WelcomeScreen} />
       <Tab.Screen name="Usuario" component={UsuarioScreen} />
+      <Tab.Screen name="Empleados" component={EmpleadosScreen}/>
     </Tab.Navigator>
   );
 }
 
 function MyStack() {
     return (
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName='Welcome' >
         <Stack.Screen name="Tabs" component={MyTabs} />
-
+        <Stack.Screen name="Welcome" component={WelcomeScreen}/> 
       </Stack.Navigator>
     );
   }
